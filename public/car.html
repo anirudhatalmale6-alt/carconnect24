@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarConnect24 — Car details</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .detail{max-width:1100px;margin:0 auto;padding:22px 20px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+  .db{background:#0d1626;border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3}
+  .db img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .3s}
+  .db img.show{opacity:1}
+  .db .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5b6f92}
+  .db .arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;border:none;cursor:pointer;font-size:20px}
+  .db .prev{left:12px}.db .next{right:12px}
+  .thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .thumbs img{width:84px;height:60px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid transparent}
+  .thumbs img.on{border-color:var(--brand)}
+  .info{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);align-self:start}
+  .info h1{margin:0 0 4px;font-size:24px}
+  .info .p{font-size:30px;font-weight:800;color:var(--brand);margin:8px 0 16px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-bottom:16px}
+  .grid .k{color:var(--muted);font-size:13px}
+  .grid .v{font-weight:700}
+  .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+  .flist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .flist span{background:#eef3fb;color:#33517d;padding:5px 11px;border-radius:8px;font-size:13px}
+  .cta{display:block;width:100%;text-align:center;background:var(--brand);color:#fff;padding:14px;border-radius:11px;font-weight:800;margin-top:18px}
+  .cta:hover{background:var(--brand-dark)}
+  .back{display:inline-block;margin:16px 0 0 20px;color:var(--muted);font-weight:600}
+  .desc{white-space:pre-wrap;color:#2b3a52;line-height:1.5}
+  @media(max-width:820px){.detail{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="/">Car<span>Connect</span><b>24</b></a>
+  <nav class="nav"><a href="/">Stock</a><a href="/admin.html" class="adminlink">Admin</a></nav>
+</div></header>
+<a class="back" href="/">← Back to stock</a>
+<div class="detail" id="detail">Loading…</div>
+<footer><div>CarConnect24 · Export cars from Belgium</div></footer>
+
+<script>
+const euro=n=>n==null?'—':'€'+(+n).toLocaleString('en-US');
+const km=n=>n==null?'—':(+n).toLocaleString('en-US')+' km';
+const id=new URLSearchParams(location.search).get('id');
+fetch('/api/cars/'+id).then(r=>{if(!r.ok)throw 0;return r.json();}).then(render)
+  .catch(()=>{document.getElementById('detail').innerHTML='<p>Car not found. <a href="/">Back to stock</a></p>';});
+
+function render(c){
+  document.title = `${c.make} ${c.model} — CarConnect24`;
+  const photos=c.photos.length?c.photos:[];
+  const gallery = photos.length
+    ? photos.map((p,i)=>`<img src="${p}" class="${i===0?'show':''}">`).join('') +
+      (photos.length>1?'<button class="arrow prev">‹</button><button class="arrow next">›</button>':'')
+    : '<div class="ph">No photos</div>';
+  const thumbs = photos.length>1 ? `<div class="thumbs">${photos.map((p,i)=>`<img src="${p}" class="${i===0?'on':''}" data-i="${i}">`).join('')}</div>`:'';
+  const spec=(k,v)=>`<div class="k">${k}</div><div class="v">${v}</div>`;
+  const feats=(c.features||[]).map(f=>`<span>${f}</span>`).join('') || '<span>—</span>';
+  document.getElementById('detail').innerHTML=`
+    <div>
+      <div class="db">${gallery}</div>
+      ${thumbs}
+      ${c.description?`<div class="info" style="margin-top:16px"><h3 style="margin:0 0 8px">Description</h3><div class="desc">${escapeHtml(c.description)}</div></div>`:''}
+    </div>
+    <div class="info">
+      <h1>${c.make} ${c.model}</h1>
+      <div style="color:var(--muted)">${c.year||''} · ${km(c.mileage)}${c.sold?' · <b style="color:#c0392b">SOLD</b>':''}</div>
+      <div class="p">${euro(c.price)}</div>
+      <div class="grid">
+        ${spec('Year',c.year||'—')}${spec('Mileage',km(c.mileage))}
+        ${spec('Fuel',c.fuel||'—')}${spec('Gearbox',c.gearbox||'—')}
+        ${spec('Power',c.power?c.power+' hp':'—')}${spec('Body',c.body||'—')}
+        ${spec('Color',c.color||'—')}${spec('Doors',c.doors||'—')}
+        ${spec('Seats',c.seats||'—')}${spec('Location',c.location||'Belgium')}
+      </div>
+      <h3 style="margin:0 0 4px">Features</h3>
+      <div class="flist">${feats}</div>
+      <a class="cta" href="/">Contact us about this car</a>
+    </div>`;
+  wire(photos.length);
+}
+function wire(n){
+  if(n<2)return;
+  const imgs=[...document.querySelectorAll('.db img')];
+  const thumbs=[...document.querySelectorAll('.thumbs img')];
+  let idx=0;
+  const show=i=>{imgs[idx].classList.remove('show');thumbs[idx]&&thumbs[idx].classList.remove('on');
+    idx=(i+n)%n;imgs[idx].classList.add('show');thumbs[idx]&&thumbs[idx].classList.add('on');};
+  document.querySelector('.next').onclick=()=>show(idx+1);
+  document.querySelector('.prev').onclick=()=>show(idx-1);
+  thumbs.forEach(t=>t.onclick=()=>show(+t.dataset.i));
+}
+function escapeHtml(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+</script>
+</body>
+</html>

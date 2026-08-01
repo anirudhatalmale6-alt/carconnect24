@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarConnect24 — Quality export cars from Belgium</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="logo" href="/">Car<span>Connect</span><b>24</b></a>
+    <nav class="nav">
+      <a href="/">Stock</a><a href="#" id="aboutLink">Export</a><a href="/admin.html" class="adminlink">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <h1>Quality export cars, Belgium to the world</h1>
+    <p>Browse our live stock. Filter by brand, price, mileage and more — instantly.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <aside class="filters" id="filters">
+    <div class="fhead"><h3>Filter</h3><span class="fcount" id="fcount">—</span></div>
+
+    <div class="fgroup">
+      <label>Brand</label>
+      <div class="combo" id="makeCombo">
+        <input type="text" placeholder="Type a brand… e.g. Mer" autocomplete="off" id="makeInput">
+        <div class="combo-list" id="makeList"></div>
+      </div>
+    </div>
+    <div class="fgroup">
+      <label>Model</label>
+      <select id="f-model"><option value="">Any model</option></select>
+    </div>
+    <div class="fgroup">
+      <label>Price (€)</label>
+      <div class="row2">
+        <input type="number" id="f-pmin" placeholder="Min" min="0" step="500">
+        <input type="number" id="f-pmax" placeholder="Max" min="0" step="500">
+      </div>
+    </div>
+    <div class="fgroup">
+      <label>Year from</label>
+      <select id="f-year"><option value="">Any year</option></select>
+    </div>
+    <div class="fgroup">
+      <label>Max mileage (km)</label>
+      <select id="f-mileage">
+        <option value="">Any</option>
+        <option value="25000">Up to 25,000</option>
+        <option value="50000">Up to 50,000</option>
+        <option value="100000">Up to 100,000</option>
+        <option value="150000">Up to 150,000</option>
+        <option value="250000">Up to 250,000</option>
+      </select>
+    </div>
+    <div class="fgroup">
+      <label>Fuel type</label>
+      <div class="chips" id="f-fuel">
+        <div class="chip" data-v="Petrol">Petrol</div><div class="chip" data-v="Diesel">Diesel</div>
+        <div class="chip" data-v="Electric">Electric</div><div class="chip" data-v="Hybrid">Hybrid</div>
+        <div class="chip" data-v="LPG">LPG</div>
+      </div>
+    </div>
+    <div class="fgroup">
+      <label>Gearbox</label>
+      <div class="chips" id="f-gear">
+        <div class="chip" data-v="Automatic">Automatic</div><div class="chip" data-v="Manual">Manual</div>
+      </div>
+    </div>
+    <div class="fgroup">
+      <label>Body</label>
+      <div class="chips" id="f-body">
+        <div class="chip" data-v="Sedan">Sedan</div><div class="chip" data-v="SUV">SUV</div>
+        <div class="chip" data-v="Hatchback">Hatchback</div><div class="chip" data-v="Estate">Estate</div>
+        <div class="chip" data-v="Coupe">Coupe</div><div class="chip" data-v="Van">Van</div>
+      </div>
+    </div>
+    <button class="reset" id="reset">Reset all filters</button>
+  </aside>
+
+  <main>
+    <div class="toolbar">
+      <div class="count"><span id="resCount">0</span> <small>cars in stock</small></div>
+      <div class="search"><input id="q" placeholder="Search e.g. BMW X5, electric…"></div>
+      <div class="sort">Sort
+        <select id="sort">
+          <option value="new">Newest first</option>
+          <option value="pl">Price: low to high</option>
+          <option value="ph">Price: high to low</option>
+          <option value="yn">Year: newest</option>
+          <option value="mm">Mileage: lowest</option>
+        </select>
+      </div>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="pager" id="pager"></div>
+  </main>
+</div>
+<footer>
+  <div>CarConnect24 · Quality export cars from Belgium to Europe &amp; Africa</div>
+  <div class="muted">carconnect24.eu</div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
