@@ -111,8 +111,9 @@ function hydrate(row) {
 // ================= AUTH =================
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  const user = db.prepare('SELECT * FROM users WHERE username = ?').get(username || '');
-  if (!user || !bcrypt.compareSync(password || '', user.password_hash)) {
+  const uname = (username || '').trim();
+  const user = db.prepare('SELECT * FROM users WHERE username = ? COLLATE NOCASE').get(uname);
+  if (!user || !bcrypt.compareSync((password || '').trim(), user.password_hash)) {
     return res.status(401).json({ error: 'Invalid username or password' });
   }
   req.session.userId = user.id;
