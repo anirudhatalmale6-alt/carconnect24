@@ -1,6 +1,35 @@
 const $ = s => document.querySelector(s);
 const euro = n => n==null ? '—' : '€' + (+n).toLocaleString('en-US');
 const km = n => n==null ? '—' : (+n).toLocaleString('en-US') + ' km';
+
+// ---------- forgiving number entry ----------
+// Accepts 21.500 / 21,500 / 21 500 / €21.500 / 21.500,50 and turns them into a real number.
+function parseNum(v){
+  if(v==null) return null;
+  let s = String(v).trim().replace(/[^\d.,-]/g,'');   // drop €, km, spaces, hp…
+  if(!/\d/.test(s)) return null;
+  const neg = s.startsWith('-');
+  s = s.replace(/-/g,'');
+  const hasDot = s.includes('.'), hasCom = s.includes(',');
+  if(hasDot && hasCom){                                // whichever comes last is the decimal mark
+    const dec = s.lastIndexOf('.') > s.lastIndexOf(',') ? '.' : ',';
+    s = s.split(dec==='.' ? ',' : '.').join('').replace(dec,'.');
+  } else if(hasDot || hasCom){
+    const parts = s.split(hasDot ? '.' : ',');
+    // "21.500" / "1.234.567" → grouping;  "21.5" → decimal
+    s = (parts.length > 2 || parts[parts.length-1].length === 3) ? parts.join('') : parts.join('.');
+  }
+  const n = parseFloat(s);
+  return isFinite(n) ? (neg ? -n : n) : null;
+}
+// 21500 → "21.500" (European grouping, same shape the dealer types)
+const fmtNum = n => n==null ? '' : n.toLocaleString('de-DE', { maximumFractionDigits: 2 });
+// Tidy the field once the user leaves it, so they can see exactly what will be saved.
+document.addEventListener('blur', e => {
+  if(!e.target.classList || !e.target.classList.contains('num')) return;
+  const n = parseNum(e.target.value);
+  e.target.value = n==null ? '' : fmtNum(n);
+}, true);
 let BRANDS = [];
 let newPhotos = [];      // {file, url}
 let keptPhotos = [];     // existing photo URLs when editing
@@ -121,11 +150,16 @@ function renderThumbs(){
 // ---------- submit (add or edit) ----------
 $('#carForm').addEventListener('submit', async e => {
   e.preventDefault();
-  const make=$('#make').value.trim(), model=$('#model').value.trim(), price=$('#price').value.trim();
-  if(!make||!model||!price){ toast('Add at least brand, model & price', true); return; }
+  const make=$('#make').value.trim(), model=$('#model').value.trim(), price=parseNum($('#price').value);
+  if(!make||!model||price==null){ toast('Add at least brand, model & price', true); return; }
   const fd = new FormData();
   const fields=['make','model','year','price','mileage','power','color','doors','seats','location','description'];
-  fields.forEach(f=>fd.append(f, $('#'+f).value));
+  const numeric=['year','price','mileage','power','doors','seats'];
+  fields.forEach(f=>{
+    const raw = $('#'+f).value;
+    if(numeric.includes(f)){ const n = parseNum(raw); fd.append(f, n==null ? '' : String(n)); }
+    else fd.append(f, raw);
+  });
   fd.append('fuel', sel('#fuel')); fd.append('gearbox', sel('#gearbox')); fd.append('body', sel('#body'));
   fd.append('features', JSON.stringify([...document.querySelectorAll('#feats .chip.on')].map(c=>c.dataset.v)));
   newPhotos.forEach(p=>fd.append('photos', p.file));
@@ -190,7 +224,8 @@ window.editCar = async (id) => {
   $('#formTitle').textContent='Edit car';
   $('#publishBtn').textContent='Save changes';
   $('#cancelEdit').style.display='inline-block';
-  ['model','year','price','mileage','power','color','doors','seats','location','description'].forEach(f=>$('#'+f).value=c[f]??'');
+  ['model','year','color','doors','seats','location','description'].forEach(f=>$('#'+f).value=c[f]??'');
+  ['price','mileage','power'].forEach(f=>$('#'+f).value = c[f]==null ? '' : fmtNum(c[f]));
   $('#make').value=c.make||'';
   setChip('#fuel',c.fuel); setChip('#gearbox',c.gearbox); setChip('#body',c.body);
   document.querySelectorAll('#feats .chip').forEach(ch=>ch.classList.toggle('on',(c.features||[]).includes(ch.dataset.v)));

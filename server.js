@@ -64,10 +64,10 @@ app.get('/api/cars', (req, res) => {
                      q.gearbox.split(',').forEach((v,i)=>params['gb'+i]=v); }
   if (q.body)      { where.push('body IN (' + q.body.split(',').map((_,i)=>`@bd${i}`).join(',') + ')');
                      q.body.split(',').forEach((v,i)=>params['bd'+i]=v); }
-  if (q.pmin)      { where.push('price >= @pmin'); params.pmin = +q.pmin; }
-  if (q.pmax)      { where.push('price <= @pmax'); params.pmax = +q.pmax; }
-  if (q.yearmin)   { where.push('year >= @yearmin'); params.yearmin = +q.yearmin; }
-  if (q.mileagemax){ where.push('mileage <= @mileagemax'); params.mileagemax = +q.mileagemax; }
+  if (num(q.pmin)!=null)      { where.push('price >= @pmin'); params.pmin = num(q.pmin); }
+  if (num(q.pmax)!=null)      { where.push('price <= @pmax'); params.pmax = num(q.pmax); }
+  if (num(q.yearmin)!=null)   { where.push('year >= @yearmin'); params.yearmin = num(q.yearmin); }
+  if (num(q.mileagemax)!=null){ where.push('mileage <= @mileagemax'); params.mileagemax = num(q.mileagemax); }
   if (q.q) {
     where.push('(make LIKE @kw OR model LIKE @kw OR fuel LIKE @kw OR body LIKE @kw OR color LIKE @kw)');
     params.kw = '%' + q.q + '%';
@@ -198,15 +198,35 @@ async function savePhotos(files) {
   return out;
 }
 
+// Accepts 21.500 / 21,500 / 21 500 / €21.500 / 21.500,50 — European grouping included.
+function num(v) {
+  if (v == null) return null;
+  let s = String(v).trim().replace(/[^\d.,-]/g, '');
+  if (!/\d/.test(s)) return null;
+  const neg = s.startsWith('-');
+  s = s.replace(/-/g, '');
+  const hasDot = s.includes('.'), hasCom = s.includes(',');
+  if (hasDot && hasCom) {
+    const dec = s.lastIndexOf('.') > s.lastIndexOf(',') ? '.' : ',';
+    s = s.split(dec === '.' ? ',' : '.').join('').replace(dec, '.');
+  } else if (hasDot || hasCom) {
+    const parts = s.split(hasDot ? '.' : ',');
+    s = (parts.length > 2 || parts[parts.length - 1].length === 3) ? parts.join('') : parts.join('.');
+  }
+  const n = parseFloat(s);
+  if (!isFinite(n)) return null;
+  return neg ? -n : n;
+}
+
 function normalize(b, photos) {
   let features = b.features;
   if (typeof features === 'string') { try { features = JSON.parse(features); } catch { features = features ? [features] : []; } }
   return {
     make: b.make || '', model: b.model || '',
-    year: +b.year || null, price: +b.price || null, mileage: +b.mileage || null,
-    power: +b.power || null, fuel: b.fuel || null, gearbox: b.gearbox || null,
-    body: b.body || null, color: b.color || null, doors: +b.doors || null,
-    seats: +b.seats || null, location: b.location || null, description: b.description || null,
+    year: num(b.year), price: num(b.price), mileage: num(b.mileage),
+    power: num(b.power), fuel: b.fuel || null, gearbox: b.gearbox || null,
+    body: b.body || null, color: b.color || null, doors: num(b.doors),
+    seats: num(b.seats), location: b.location || null, description: b.description || null,
     features: JSON.stringify(Array.isArray(features) ? features : []),
     photos: JSON.stringify(photos)
   };

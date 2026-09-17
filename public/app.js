@@ -2,6 +2,25 @@ const $ = s => document.querySelector(s);
 const euro = n => n==null ? '—' : '€' + (+n).toLocaleString('en-US');
 const km = n => n==null ? '—' : (+n).toLocaleString('en-US') + ' km';
 
+// Accepts 21.500 / 21,500 / 21 500 / €21.500 so the price filter never rejects a typed amount.
+function parseNum(v){
+  if(v==null) return null;
+  let s = String(v).trim().replace(/[^\d.,-]/g,'');
+  if(!/\d/.test(s)) return null;
+  const neg = s.startsWith('-');
+  s = s.replace(/-/g,'');
+  const hasDot = s.includes('.'), hasCom = s.includes(',');
+  if(hasDot && hasCom){
+    const dec = s.lastIndexOf('.') > s.lastIndexOf(',') ? '.' : ',';
+    s = s.split(dec==='.' ? ',' : '.').join('').replace(dec,'.');
+  } else if(hasDot || hasCom){
+    const parts = s.split(hasDot ? '.' : ',');
+    s = (parts.length > 2 || parts[parts.length-1].length === 3) ? parts.join('') : parts.join('.');
+  }
+  const n = parseFloat(s);
+  return isFinite(n) ? (neg ? -n : n) : null;
+}
+
 let BRANDS = [];
 let state = {
   make:'', model:'', pmin:'', pmax:'', yearmin:'', mileagemax:'',
@@ -19,8 +38,8 @@ async function init(){
   $('#f-model').onchange = e => { state.model=e.target.value; state.page=1; load(); };
   $('#f-year').onchange  = e => { state.yearmin=e.target.value; state.page=1; load(); };
   $('#f-mileage').onchange = e => { state.mileagemax=e.target.value; state.page=1; load(); };
-  $('#f-pmin').oninput = e => { state.pmin=e.target.value; deb(); };
-  $('#f-pmax').oninput = e => { state.pmax=e.target.value; deb(); };
+  $('#f-pmin').oninput = e => { const n=parseNum(e.target.value); state.pmin = n==null?'':n; deb(); };
+  $('#f-pmax').oninput = e => { const n=parseNum(e.target.value); state.pmax = n==null?'':n; deb(); };
   $('#q').oninput = e => { state.q=e.target.value; deb(); };
   $('#sort').onchange = e => { state.sort=e.target.value; state.page=1; load(); };
   chipGroup('#f-fuel','fuel'); chipGroup('#f-gear','gearbox'); chipGroup('#f-body','body');
