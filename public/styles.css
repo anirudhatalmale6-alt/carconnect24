@@ -259,3 +259,32 @@ footer .muted{font-size:12px;opacity:.7;margin-top:4px}
   .logo-txt{font-size:17px}
   .logo-mark{height:32px}
 }
+
+/* ---- Getting to the cars must be obvious from anywhere on the landing page ---- */
+.btn-stock{background:#fff;color:#20272a;border:2px solid #fff}
+.btn-stock:hover{background:var(--brand);border-color:var(--brand);color:#fff}
+
+.stockband{
+  max-width:1240px;margin:34px auto 0;padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  background:linear-gradient(100deg,#2b3232,#3f4a4a);color:#fff;border-radius:16px;
+  box-shadow:var(--shadow);transition:.15s;border:2px solid transparent;
+}
+.stockband:hover{border-color:var(--brand);transform:translateY(-2px)}
+.stockband .sb-l{font-size:16px;line-height:1.5;opacity:.92}
+.stockband .sb-l b{opacity:1;font-size:17px}
+.stockband .sb-btn{
+  background:var(--brand);color:#fff;font-weight:800;font-size:15px;
+  padding:13px 22px;border-radius:11px;white-space:nowrap;flex:none;
+}
+.stockband:hover .sb-btn{background:var(--brand-dark)}
+
+/* the stock link in the header should read as a destination, not a footnote */
+.nav a[href="/stock"]{color:var(--brand);font-weight:800}
+.nav a[href="/stock"]:hover{color:var(--brand-dark)}
+
+@media(max-width:900px){
+  .stockband{margin:26px 20px 0;padding:18px 20px;flex-direction:column;align-items:flex-start}
+  .stockband .sb-btn{width:100%;text-align:center}
+  .stockband .sb-l{font-size:15px}
+}

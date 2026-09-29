@@ -40,7 +40,7 @@
         <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
         Send us your car
       </a>
-      <a class="btn btn-ghost" href="/stock">View our stock</a>
+      <a class="btn btn-stock" href="/stock">🚗 Browse our stock</a>
     </div>
   </div>
 </section>
@@ -51,6 +51,13 @@
   <div class="stat"><b>5</b><span>channels per listing</span></div>
   <div class="stat"><b>24/7</b><span>reachable on WhatsApp</span></div>
 </div>
+
+
+<!-- quick route to the cars, high on the page -->
+<a class="stockband" href="/stock">
+  <span class="sb-l"><b>Looking for a car?</b> Browse our current stock — filter by brand, price, mileage and fuel.</span>
+  <span class="sb-btn">View all cars →</span>
+</a>
 
 <!-- ============ SERVICES ============ -->
 <section class="sec" id="services">
@@ -107,8 +114,18 @@
   </div>
 </section>
 
+<!-- ============ STOCK PREVIEW ============ -->
+<section class="sec alt" id="stock">
+  <div class="sec-head">
+    <h2>Our current stock</h2>
+    <p>A live selection of the cars we have available right now. The full list is searchable and filterable.</p>
+  </div>
+  <div class="stockstrip" id="stockStrip"></div>
+  <div class="center"><a class="btn btn-brand" href="/stock">See all our cars</a></div>
+</section>
+
 <!-- ============ HOW IT WORKS ============ -->
-<section class="sec alt">
+<section class="sec">
   <div class="sec-head">
     <h2>How it works</h2>
     <p>Three steps. The whole thing runs over WhatsApp, so there is nothing to install and nothing to learn.</p>
@@ -133,7 +150,7 @@
 </section>
 
 <!-- ============ WHY BELGIUM ============ -->
-<section class="sec">
+<section class="sec alt">
   <div class="why">
     <div>
       <h2 style="margin:0 0 12px;font-size:30px;letter-spacing:-.6px">Why Belgian cars sell so well abroad</h2>
@@ -153,16 +170,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ STOCK PREVIEW ============ -->
-<section class="sec alt" id="stock">
-  <div class="sec-head">
-    <h2>Our current stock</h2>
-    <p>A live selection of the cars we have available right now. The full list is searchable and filterable.</p>
-  </div>
-  <div class="stockstrip" id="stockStrip"></div>
-  <div class="center"><a class="btn btn-brand" href="/stock">See all our cars</a></div>
 </section>
 
 <!-- ============ FAQ ============ -->
@@ -291,7 +298,7 @@
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 /* live stock preview — newest 3 cars */
-fetch('/api/cars?sort=new&size=3')
+fetch('/api/cars?sort=new&size=6')
   .then(function (r) { return r.json(); })
   .then(function (d) {
     var cars = d.cars || (Array.isArray(d) ? d : []);
@@ -300,7 +307,7 @@ fetch('/api/cars?sort=new&size=3')
       el.innerHTML = '<div class="rev-note" style="grid-column:1/-1">No cars in stock right now — check back soon.</div>';
       return;
     }
-    el.innerHTML = cars.slice(0, 3).map(function (c) {
+    el.innerHTML = cars.slice(0, 6).map(function (c) {
       var photo = (c.photos && c.photos[0]) ? c.photos[0] : '';
       var price = c.price == null ? '—' : '€' + Number(c.price).toLocaleString('de-DE');
       var km = c.mileage == null ? '' : Number(c.mileage).toLocaleString('de-DE') + ' km';

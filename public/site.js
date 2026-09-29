@@ -7,10 +7,10 @@
       That one line switches on every WhatsApp button on the site.
    ------------------------------------------------------------------ */
 window.SITE = {
-  WHATSAPP: '',                       // <-- put the number here
-  FACEBOOK: '',                       // full https:// link
+  WHATSAPP: '32456963581',                       // <-- put the number here
+  FACEBOOK: 'https://www.facebook.com/share/1FA5S3mDog/?mibextid=LQQJ4d',                       // full https:// link
   TIKTOK:   '',                       // full https:// link
-  EMAIL:    '',                       // shown in the footer
+  EMAIL:    'Carconnect24.eu@gmail.com',                       // shown in the footer
   VAT:      ''                        // BTW / VAT number, shown in the footer
 };
 
