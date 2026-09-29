@@ -48,4 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-vat]').forEach(function (el) {
     if (window.SITE.VAT) el.textContent = window.SITE.VAT; else el.style.display = 'none';
   });
+
+  /* If a footer column ends up with no visible links, hide the whole column
+     (including its heading) so we never show an empty "Social media" block. */
+  document.querySelectorAll('.foot-in > div').forEach(function (col) {
+    var links = col.querySelectorAll('a');
+    if (!links.length) return;
+    var visible = [].filter.call(links, function (a) { return a.style.display !== 'none'; });
+    if (!visible.length) col.style.display = 'none';
+  });
 });
