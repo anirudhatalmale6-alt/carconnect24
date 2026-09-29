@@ -1,6 +1,6 @@
 const $ = s => document.querySelector(s);
-const euro = n => n==null ? '—' : '€' + (+n).toLocaleString('en-US');
-const km = n => n==null ? '—' : (+n).toLocaleString('en-US') + ' km';
+const euro = n => n==null ? '—' : '€' + (+n).toLocaleString('de-DE');
+const km = n => n==null ? '—' : (+n).toLocaleString('de-DE') + ' km';
 
 // ---------- forgiving number entry ----------
 // Accepts 21.500 / 21,500 / 21 500 / €21.500 / 21.500,50 and turns them into a real number.

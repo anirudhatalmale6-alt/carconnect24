@@ -1,6 +1,6 @@
 const $ = s => document.querySelector(s);
-const euro = n => n==null ? '—' : '€' + (+n).toLocaleString('en-US');
-const km = n => n==null ? '—' : (+n).toLocaleString('en-US') + ' km';
+const euro = n => n==null ? '—' : '€' + (+n).toLocaleString('de-DE');
+const km = n => n==null ? '—' : (+n).toLocaleString('de-DE') + ' km';
 
 // Accepts 21.500 / 21,500 / 21 500 / €21.500 so the price filter never rejects a typed amount.
 function parseNum(v){
@@ -124,8 +124,8 @@ function buildQuery(){
 
 async function load(){
   const data = await fetch('/api/cars?'+buildQuery()).then(r=>r.json());
-  $('#resCount').textContent = data.total.toLocaleString('en-US');
-  $('#fcount').textContent = data.total.toLocaleString('en-US')+' match';
+  $('#resCount').textContent = data.total.toLocaleString('de-DE');
+  $('#fcount').textContent = data.total.toLocaleString('de-DE')+' match';
   render(data.cars);
   renderPager(data.pages, data.page);
 }

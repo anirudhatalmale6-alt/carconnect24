@@ -48,8 +48,8 @@
 
 <script src="/site.js"></script>
 <script>
-const euro=n=>n==null?'—':'€'+(+n).toLocaleString('en-US');
-const km=n=>n==null?'—':(+n).toLocaleString('en-US')+' km';
+const euro=n=>n==null?'—':'€'+(+n).toLocaleString('de-DE');
+const km=n=>n==null?'—':(+n).toLocaleString('de-DE')+' km';
 const id=new URLSearchParams(location.search).get('id');
 fetch('/api/cars/'+id).then(r=>{if(!r.ok)throw 0;return r.json();}).then(render)
   .catch(()=>{document.getElementById('detail').innerHTML='<p>Car not found. <a href="/">Back to stock</a></p>';});
