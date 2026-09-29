@@ -231,3 +231,21 @@ footer .muted{font-size:12px;opacity:.7;margin-top:4px}
   .stats{grid-template-columns:1fr 1fr;gap:10px}
   .stat b{font-size:24px}
 }
+
+/* Header nav must never push the page sideways on a phone.
+   Below 760px the bar tightens; below 560px the secondary text links drop
+   so the logo + WhatsApp button always fit. */
+@media(max-width:760px){
+  .nav{gap:13px;font-size:13px;flex-wrap:wrap;justify-content:flex-end}
+  .nav .wa{padding:7px 11px}
+  .adminlink{padding:7px 11px}
+}
+@media(max-width:560px){
+  .nav .nl{display:none}
+  .bar{gap:10px;padding:10px 14px}
+  .nav{gap:10px}
+  .nav .wa svg{width:15px;height:15px}
+}
+@media(max-width:380px){
+  .nav .adminlink{display:none}
+}
