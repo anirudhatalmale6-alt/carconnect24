@@ -24,6 +24,9 @@ app.use(session({
 app.use('/uploads', express.static(UPLOAD_DIR, { maxAge: '7d' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Pretty URL for the car list: /stock -> public/stock.html
+app.get('/stock', (req, res) => res.sendFile(path.join(__dirname, 'public', 'stock.html')));
+
 // ---- Multer: accept images in memory, we resize with sharp ----
 const upload = multer({
   storage: multer.memoryStorage(),

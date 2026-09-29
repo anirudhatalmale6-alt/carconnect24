@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CarConnect24 — Quality export cars from Belgium</title>
+<title>CarConnect24 — Sell your car abroad | Export buyers, listings &amp; photos</title>
+<meta name="description" content="We connect Belgian car dealers to 20,000 export buyers worldwide. We also list your cars on 2dehands, AutoScout24, Facebook and TikTok for €10 per car, and shoot professional photos.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -17,103 +18,303 @@
       <span class="logo-txt">Car<i>Connect</i><b>24</b></span>
     </a>
     <nav class="nav">
-      <a href="/">Stock</a><a href="#" id="aboutLink">Export</a><a href="/admin.html" class="adminlink">Admin</a>
+      <a href="#services">Services</a>
+      <a href="/stock">Our stock</a>
+      <a href="#faq">FAQ</a>
+      <a class="wa" data-wa="Hello CarConnect24, I would like more information.">
+        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+        WhatsApp
+      </a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-in">
-    <h1>Quality export cars, Belgium to the world</h1>
-    <p>Browse our live stock. Filter by brand, price, mileage and more — instantly.</p>
+<!-- ============ HERO ============ -->
+<section class="lhero">
+  <div class="lhero-in">
+    <span class="eyebrow">Belgium → Europe, Africa &amp; beyond</span>
+    <h1>Your car sold abroad. Without the hassle.</h1>
+    <p class="lead">We have around 20,000 export contacts worldwide who are actively looking to buy cars from Belgium. Send us the details of your car on WhatsApp — we find the buyer. We also take the whole listing and photo workload off your hands.</p>
+    <div class="ctas">
+      <a class="btn btn-wa" data-wa="Hello CarConnect24, I have a car I would like to sell. Here are the details:">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+        Send us your car
+      </a>
+      <a class="btn btn-ghost" href="/stock">View our stock</a>
+    </div>
   </div>
 </section>
 
-<div class="wrap">
-  <aside class="filters" id="filters">
-    <div class="fhead"><h3>Filter</h3><span class="fcount" id="fcount">—</span></div>
-
-    <div class="fgroup">
-      <label>Brand</label>
-      <div class="combo" id="makeCombo">
-        <input type="text" placeholder="Type a brand… e.g. Mer" autocomplete="off" id="makeInput">
-        <div class="combo-list" id="makeList"></div>
-      </div>
-    </div>
-    <div class="fgroup">
-      <label>Model</label>
-      <select id="f-model"><option value="">Any model</option></select>
-    </div>
-    <div class="fgroup">
-      <label>Price (€)</label>
-      <div class="row2">
-        <input type="text" inputmode="decimal" id="f-pmin" placeholder="Min">
-        <input type="text" inputmode="decimal" id="f-pmax" placeholder="Max">
-      </div>
-    </div>
-    <div class="fgroup">
-      <label>Year from</label>
-      <select id="f-year"><option value="">Any year</option></select>
-    </div>
-    <div class="fgroup">
-      <label>Max mileage (km)</label>
-      <select id="f-mileage">
-        <option value="">Any</option>
-        <option value="25000">Up to 25,000</option>
-        <option value="50000">Up to 50,000</option>
-        <option value="100000">Up to 100,000</option>
-        <option value="150000">Up to 150,000</option>
-        <option value="250000">Up to 250,000</option>
-      </select>
-    </div>
-    <div class="fgroup">
-      <label>Fuel type</label>
-      <div class="chips" id="f-fuel">
-        <div class="chip" data-v="Petrol">Petrol</div><div class="chip" data-v="Diesel">Diesel</div>
-        <div class="chip" data-v="Electric">Electric</div><div class="chip" data-v="Hybrid">Hybrid</div>
-        <div class="chip" data-v="LPG">LPG</div>
-      </div>
-    </div>
-    <div class="fgroup">
-      <label>Gearbox</label>
-      <div class="chips" id="f-gear">
-        <div class="chip" data-v="Automatic">Automatic</div><div class="chip" data-v="Manual">Manual</div>
-      </div>
-    </div>
-    <div class="fgroup">
-      <label>Body</label>
-      <div class="chips" id="f-body">
-        <div class="chip" data-v="Sedan">Sedan</div><div class="chip" data-v="SUV">SUV</div>
-        <div class="chip" data-v="Hatchback">Hatchback</div><div class="chip" data-v="Estate">Estate</div>
-        <div class="chip" data-v="Coupe">Coupe</div><div class="chip" data-v="Van">Van</div>
-      </div>
-    </div>
-    <button class="reset" id="reset">Reset all filters</button>
-  </aside>
-
-  <main>
-    <div class="toolbar">
-      <div class="count"><span id="resCount">0</span> <small>cars in stock</small></div>
-      <div class="search"><input id="q" placeholder="Search e.g. BMW X5, electric…"></div>
-      <div class="sort">Sort
-        <select id="sort">
-          <option value="new">Newest first</option>
-          <option value="pl">Price: low to high</option>
-          <option value="ph">Price: high to low</option>
-          <option value="yn">Year: newest</option>
-          <option value="mm">Mileage: lowest</option>
-        </select>
-      </div>
-    </div>
-    <div class="list" id="list"></div>
-    <div class="pager" id="pager"></div>
-  </main>
+<div class="stats">
+  <div class="stat"><b>20,000</b><span>export buyer contacts</span></div>
+  <div class="stat"><b>€10</b><span>per car, fully listed</span></div>
+  <div class="stat"><b>5</b><span>channels per listing</span></div>
+  <div class="stat"><b>24/7</b><span>reachable on WhatsApp</span></div>
 </div>
-<footer>
-  <div>CarConnect24 · Quality export cars from Belgium to Europe &amp; Africa</div>
-  <div class="muted">carconnect24.eu</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec" id="services">
+  <div class="sec-head">
+    <h2>Three ways we help you sell</h2>
+    <p>Pick one, or let us handle all three. Everything starts with a simple WhatsApp message — no accounts, no contracts, no software to learn.</p>
+  </div>
+
+  <div class="svcs">
+    <!-- 1 -->
+    <div class="svc">
+      <div class="num">1</div>
+      <h3>Export sales</h3>
+      <p>We have built up around 20,000 contacts around the world who buy cars from Belgium. Send us the details of your car on WhatsApp and we make sure a buyer from our network is found.</p>
+      <ul>
+        <li>Send car details by WhatsApp</li>
+        <li>We match it to our buyer network</li>
+        <li>Buyers across Europe and Africa</li>
+        <li>No listing work on your side</li>
+      </ul>
+      <a class="btn btn-wa" data-wa="Hello CarConnect24, I have a car for export. Here are the details:">Send a car</a>
+    </div>
+
+    <!-- 2 -->
+    <div class="svc">
+      <div class="num">2</div>
+      <h3>We publish your cars</h3>
+      <p>Putting a car online everywhere takes time and energy. We take that away completely. You send us the details and we publish the car on all of these channels:</p>
+      <ul>
+        <li>2dehands (Belgian market)</li>
+        <li>AutoScout24</li>
+        <li>Our Facebook channel</li>
+        <li>Our TikTok channel</li>
+        <li>carconnect24.eu — our own website</li>
+      </ul>
+      <div class="tag">€10 <small>per car</small></div>
+      <a class="btn btn-brand" data-wa="Hello CarConnect24, I would like you to publish my cars (€10 per car).">Start publishing</a>
+    </div>
+
+    <!-- 3 -->
+    <div class="svc">
+      <div class="num">3</div>
+      <h3>Professional photos</h3>
+      <p>Not in the mood to photograph the car yourself? No problem. We come to you and shoot the car properly with a professional camera. Good photos sell cars faster and for more.</p>
+      <ul>
+        <li>We come to your location</li>
+        <li>Professional camera, not a phone</li>
+        <li>Ready to publish immediately</li>
+        <li>Combine with the listing service</li>
+      </ul>
+      <div class="tag">€10 <small>per car</small></div>
+      <a class="btn btn-brand" data-wa="Hello CarConnect24, I would like to book professional photos (€10 per car).">Book a shoot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="sec alt">
+  <div class="sec-head">
+    <h2>How it works</h2>
+    <p>Three steps. The whole thing runs over WhatsApp, so there is nothing to install and nothing to learn.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="n">1</div>
+      <h4>Send us the car</h4>
+      <p>Message us on WhatsApp with the details: brand, model, year, mileage, price and a few photos. That is all we need to start.</p>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <h4>We do the work</h4>
+      <p>We publish the car across all our channels and put it in front of our export buyers. If you want better photos, we come and shoot them.</p>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <h4>You get the buyer</h4>
+      <p>Interested buyers come back through us. You keep doing what you do best — we handle the listings and the export contacts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY BELGIUM ============ -->
+<section class="sec">
+  <div class="why">
+    <div>
+      <h2 style="margin:0 0 12px;font-size:30px;letter-spacing:-.6px">Why Belgian cars sell so well abroad</h2>
+      <p style="color:var(--muted);line-height:1.7;margin:0">Belgium has always had interesting cars for the rest of the world — good specifications, well maintained, and exactly the models buyers in other countries are looking for. That is why our network keeps coming back to us.</p>
+      <ul>
+        <li>Strong demand from Europe and Africa</li>
+        <li>Buyers who already know and trust our network</li>
+        <li>We speak the buyer's language, you do not have to</li>
+        <li>No marketplace admin on your side</li>
+      </ul>
+    </div>
+    <div class="why-card">
+      <h3>Dealers: we take the admin away</h3>
+      <p>Publishing every car on every platform eats hours you do not have. Hand it to us for €10 per car and it lands on 2dehands, AutoScout24, our Facebook, our TikTok and our own website — while you get on with selling.</p>
+      <div class="ctas" style="margin-top:20px">
+        <a class="btn btn-wa" data-wa="Hello CarConnect24, I am a dealer and I would like to know more about the €10 publishing service.">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STOCK PREVIEW ============ -->
+<section class="sec alt" id="stock">
+  <div class="sec-head">
+    <h2>Our current stock</h2>
+    <p>A live selection of the cars we have available right now. The full list is searchable and filterable.</p>
+  </div>
+  <div class="stockstrip" id="stockStrip"></div>
+  <div class="center"><a class="btn btn-brand" href="/stock">See all our cars</a></div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="sec-head">
+    <h2>Frequently asked questions</h2>
+    <p>Everything dealers and sellers usually want to know before they send us their first car.</p>
+  </div>
+  <div class="faq">
+    <details class="qa" open>
+      <summary>How do I send you a car?</summary>
+      <div class="a">Simply on WhatsApp. Send the brand, model, year, mileage, asking price and some photos. You do not need an account and there is no form to fill in. We reply and take it from there.</div>
+    </details>
+    <details class="qa">
+      <summary>What does the €10 per car actually include?</summary>
+      <div class="a">For €10 per car we publish that car on 2dehands, AutoScout24, our Facebook channel, our TikTok channel and on carconnect24.eu. One price, all five channels, and none of the admin lands on you.</div>
+    </details>
+    <details class="qa">
+      <summary>Who are your 20,000 contacts?</summary>
+      <div class="a">They are export buyers we have built up around the world who specifically look for cars coming out of Belgium. When you send us a car, it goes in front of the buyers in that network who are looking for exactly that kind of vehicle.</div>
+    </details>
+    <details class="qa">
+      <summary>Do you only work with dealers?</summary>
+      <div class="a">Dealers are most of our work, because they have volume and the admin hurts them most. But if you are a private seller with a car that suits the export market, message us and we will tell you honestly whether we can help.</div>
+    </details>
+    <details class="qa">
+      <summary>What do you need to publish my cars for me?</summary>
+      <div class="a">We need the car details, the photos and access to the accounts where the car should appear. We handle the listing itself so you do not have to log in and re-type the same car five times.</div>
+    </details>
+    <details class="qa">
+      <summary>What if I do not have good photos?</summary>
+      <div class="a">We come to you and shoot the car with a professional camera for €10 per car. Good photos genuinely make a difference — they get more clicks and they help the car sell faster.</div>
+    </details>
+    <details class="qa">
+      <summary>Which countries do your buyers come from?</summary>
+      <div class="a">Across Europe and Africa mainly, and further afield as well. Belgium is known internationally for having interesting cars, which is exactly why the demand is there.</div>
+    </details>
+    <details class="qa">
+      <summary>How quickly can my car be online?</summary>
+      <div class="a">Usually the same day. Send it over on WhatsApp and we start straight away — there is no waiting list and no onboarding process.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="sec alt" id="reviews">
+  <div class="sec-head">
+    <h2>What our customers say</h2>
+    <p>Real feedback from dealers and sellers we work with.</p>
+  </div>
+  <div class="revs" id="revs">
+    <div class="rev">
+      <div class="stars">★★★★★</div>
+      <p>“EXAMPLE — replace with a real customer quote.”</p>
+      <div class="who">— First name, City</div>
+    </div>
+    <div class="rev">
+      <div class="stars">★★★★★</div>
+      <p>“EXAMPLE — replace with a real customer quote.”</p>
+      <div class="who">— First name, City</div>
+    </div>
+    <div class="rev">
+      <div class="stars">★★★★★</div>
+      <p>“EXAMPLE — replace with a real customer quote.”</p>
+      <div class="who">— First name, City</div>
+    </div>
+    <div class="rev-note">
+      These three are placeholders, not real reviews. Send Anirudha 3–4 genuine customer sentences
+      (first name + city is enough) and they will be swapped in. Publishing invented reviews is
+      illegal in Belgium and the EU, so this section stays marked until real ones arrive.
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <h2>Ready to sell your car abroad?</h2>
+  <p>Send us the details on WhatsApp. We will tell you honestly what we can get for it.</p>
+  <div class="ctas">
+    <a class="btn btn-wa" data-wa="Hello CarConnect24, I would like to sell a car. Here are the details:">
+      Message us on WhatsApp
+    </a>
+    <a class="btn btn-ghost" href="/stock">Browse our stock</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <img src="/img/logo-full.png" alt="CarConnect24" class="flogo">
+      <p class="blurb">Quality export cars from Belgium to Europe, Africa and beyond. We connect Belgian dealers to a worldwide network of buyers, and take the listing work off their hands.</p>
+      <div class="vat" data-vat></div>
+    </div>
+    <div>
+      <h5>Navigation</h5>
+      <a href="/">Home</a>
+      <a href="#services">Services</a>
+      <a href="/stock">Our stock</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div>
+      <h5>Social media</h5>
+      <a data-fb target="_blank" rel="noopener">Facebook</a>
+      <a data-tt target="_blank" rel="noopener">TikTok</a>
+    </div>
+    <div>
+      <h5>Get in touch</h5>
+      <a data-wa="Hello CarConnect24,">WhatsApp us</a>
+      <a data-email></a>
+      <a href="/stock">Browse stock</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <div>© <span id="yr"></span> CarConnect24 · carconnect24.eu</div>
+    <div>Export cars from Belgium to the world</div>
+  </div>
 </footer>
 
-<script src="/app.js"></script>
+<a class="wafloat" data-wa="Hello CarConnect24," aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+</a>
+
+<script src="/site.js"></script>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* live stock preview — newest 3 cars */
+fetch('/api/cars?sort=new&size=3')
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    var cars = d.cars || (Array.isArray(d) ? d : []);
+    var el = document.getElementById('stockStrip');
+    if (!cars.length) {
+      el.innerHTML = '<div class="rev-note" style="grid-column:1/-1">No cars in stock right now — check back soon.</div>';
+      return;
+    }
+    el.innerHTML = cars.slice(0, 3).map(function (c) {
+      var photo = (c.photos && c.photos[0]) ? c.photos[0] : '';
+      var price = c.price == null ? '—' : '€' + Number(c.price).toLocaleString('de-DE');
+      var km = c.mileage == null ? '' : Number(c.mileage).toLocaleString('de-DE') + ' km';
+      return '<a class="sc" href="/car.html?id=' + c.id + '">' +
+        '<div class="ph">' + (photo ? '<img src="' + photo + '" alt="' + (c.make || '') + ' ' + (c.model || '') + '" loading="lazy">' : '') + '</div>' +
+        '<div class="b"><h4>' + (c.make || '') + ' ' + (c.model || '') + '</h4>' +
+        '<div class="m">' + [c.year, km, c.fuel].filter(Boolean).join(' · ') + '</div>' +
+        '<div class="p">' + price + '</div></div></a>';
+    }).join('');
+  })
+  .catch(function () {
+    document.getElementById('stockStrip').innerHTML =
+      '<div class="rev-note" style="grid-column:1/-1">Stock could not be loaded right now.</div>';
+  });
+</script>
 </body>
 </html>

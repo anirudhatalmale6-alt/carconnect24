@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="/styles.css">
 <style>
   .detail{max-width:1100px;margin:0 auto;padding:22px 20px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
-  .db{background:#0d1626;border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3}
+  .db{background:#20272a;border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3}
   .db img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .3s}
   .db img.show{opacity:1}
-  .db .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5b6f92}
+  .db .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#6d7878}
   .db .arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;border:none;cursor:pointer;font-size:20px}
   .db .prev{left:12px}.db .next{right:12px}
   .thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
@@ -27,23 +27,26 @@
   .grid .v{font-weight:700}
   .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
   .flist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-  .flist span{background:#eef3fb;color:#33517d;padding:5px 11px;border-radius:8px;font-size:13px}
+  .flist span{background:#f1f3f3;color:#4a5555;padding:5px 11px;border-radius:8px;font-size:13px}
   .cta{display:block;width:100%;text-align:center;background:var(--brand);color:#fff;padding:14px;border-radius:11px;font-weight:800;margin-top:18px}
   .cta:hover{background:var(--brand-dark)}
+  .cta-wa{background:var(--wa)}
+  .cta-wa:hover{background:var(--wa-dark)}
   .back{display:inline-block;margin:16px 0 0 20px;color:var(--muted);font-weight:600}
-  .desc{white-space:pre-wrap;color:#2b3a52;line-height:1.5}
+  .desc{white-space:pre-wrap;color:#3c4646;line-height:1.5}
   @media(max-width:820px){.detail{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header><div class="bar">
   <a class="logo" href="/"><img src="/img/emblem.png" alt="CarConnect24" class="logo-mark"><span class="logo-txt">Car<i>Connect</i><b>24</b></span></a>
-  <nav class="nav"><a href="/">Stock</a><a href="/admin.html" class="adminlink">Admin</a></nav>
+  <nav class="nav"><a href="/">Home</a><a href="/stock">Our stock</a><a href="/#faq">FAQ</a><a class="wa" data-wa="Hello CarConnect24, I have a question."><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>WhatsApp</a><a href="/admin.html" class="adminlink">Admin</a></nav>
 </div></header>
-<a class="back" href="/">← Back to stock</a>
+<a class="back" href="/stock">← Back to stock</a>
 <div class="detail" id="detail">Loading…</div>
-<footer><div>CarConnect24 · Export cars from Belgium</div></footer>
+<footer class="foot"><div class="foot-in" style="grid-template-columns:1fr"><div><img src="/img/logo-full.png" alt="CarConnect24" class="flogo"><p class="blurb">Quality export cars from Belgium to Europe, Africa and beyond.</p><div class="vat" data-vat></div></div></div><div class="foot-bot"><div>&copy; <span id="yr"></span> CarConnect24 &middot; carconnect24.eu</div><div><a href="/">Home</a> &middot; <a href="/stock">Our stock</a> &middot; <a href="/#faq">FAQ</a></div></div></footer><a class="wafloat" data-wa="Hello CarConnect24," aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg></a>
 
+<script src="/site.js"></script>
 <script>
 const euro=n=>n==null?'—':'€'+(+n).toLocaleString('en-US');
 const km=n=>n==null?'—':(+n).toLocaleString('en-US')+' km';
@@ -80,9 +83,22 @@ function render(c){
       </div>
       <h3 style="margin:0 0 4px">Features</h3>
       <div class="flist">${feats}</div>
-      <a class="cta" href="/">Contact us about this car</a>
+      <a class="cta cta-wa" id="waCta" href="#no-whatsapp"><span style="display:inline-flex;align-items:center;gap:9px;justify-content:center"><svg style="width:19px;height:19px;fill:#fff" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>Contact us about this car</span></a>
     </div>`;
   wire(photos.length);
+
+  /* WhatsApp CTA — prefill the message with this exact car so the dealer
+     immediately knows which one the buyer means. */
+  var cta = document.getElementById('waCta');
+  if (cta) {
+    var priceTxt = c.price == null ? '' : ' (' + euro(c.price) + ')';
+    var msg = 'Hello CarConnect24, I am interested in this car: '
+            + [c.make, c.model, c.year].filter(Boolean).join(' ') + priceTxt
+            + '\n' + location.href;
+    cta.setAttribute('href', window.waHref ? window.waHref(msg) : '#no-whatsapp');
+  }
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
 }
 function wire(n){
   if(n<2)return;
