@@ -249,3 +249,13 @@ footer .muted{font-size:12px;opacity:.7;margin-top:4px}
 @media(max-width:380px){
   .nav .adminlink{display:none}
 }
+
+/* On narrow phones the header needs ~400px but only has ~362.
+   Collapse the header WhatsApp button to its icon so the logo and
+   "Our stock" still fit on ONE row (the floating button keeps the big CTA). */
+@media(max-width:470px){
+  .nav .wa{font-size:0;padding:9px;gap:0}
+  .nav .wa svg{width:18px;height:18px}
+  .logo-txt{font-size:17px}
+  .logo-mark{height:32px}
+}
