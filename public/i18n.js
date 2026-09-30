@@ -36,7 +36,7 @@ window.I18N = {
     'hero.cta2': '🚗 Browse our stock',
 
     /* stats */
-    'stat.1': 'export buyer contacts', 'stat.2': 'per car, fully listed',
+    'stat.1n': '20,000', 'stat.1': 'export buyer contacts', 'stat.2': 'per car, fully listed',
     'stat.3': 'channels per listing', 'stat.4': 'reachable on WhatsApp',
 
     /* stock band */
@@ -190,7 +190,7 @@ window.I18N = {
     'hero.cta1': 'Stuur ons uw wagen',
     'hero.cta2': '🚗 Bekijk ons aanbod',
 
-    'stat.1': 'exportkopers in ons netwerk', 'stat.2': 'per wagen, volledig geplaatst',
+    'stat.1n': '20.000', 'stat.1': 'exportkopers in ons netwerk', 'stat.2': 'per wagen, volledig geplaatst',
     'stat.3': 'kanalen per advertentie', 'stat.4': 'bereikbaar via WhatsApp',
 
     'band.strong': 'Op zoek naar een wagen?',
