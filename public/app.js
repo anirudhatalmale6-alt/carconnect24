@@ -163,7 +163,7 @@ function render(cars){
         <div class="specs">${specs}</div>
         <div class="feat">${feats}</div>
         <div class="cfoot">
-          <span class="loc">📍 ${c.location||'Belgium'}</span>
+          ${c.location?`<span class="loc">📍 ${c.location}</span>`:''}
           <button class="view" onclick="location.href='/car.html?id=${c.id}'">${T('sp.view')}</button>
         </div>
       </div>
