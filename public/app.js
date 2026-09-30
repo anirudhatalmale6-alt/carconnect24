@@ -126,6 +126,8 @@ function buildQuery(){
 async function load(){
   const data = await fetch('/api/cars?'+buildQuery()).then(r=>r.json());
   $('#resCount').textContent = data.total.toLocaleString('de-DE');
+  var lbl = document.querySelector('.count small');
+  if (lbl) lbl.textContent = T(data.total === 1 ? 'sp.instock1' : 'sp.instock');
   $('#fcount').textContent = data.total.toLocaleString('de-DE')+' '+T('sp.match');
   render(data.cars);
   renderPager(data.pages, data.page);
@@ -199,12 +201,12 @@ function renderPager(pages,cur){
 /* Re-render the list and the localised option labels when the language changes. */
 document.addEventListener('langchange', () => {
   document.querySelectorAll('#f-mileage option[data-upto]').forEach(o => {
-    o.textContent = T('sp.upto') + ' ' + o.getAttribute('data-upto');
+    o.textContent = T('sp.upto') + ' ' + Number(o.value).toLocaleString('de-DE');
   });
   load();
 });
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('#f-mileage option[data-upto]').forEach(o => {
-    o.textContent = T('sp.upto') + ' ' + o.getAttribute('data-upto');
+    o.textContent = T('sp.upto') + ' ' + Number(o.value).toLocaleString('de-DE');
   });
 });
