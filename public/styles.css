@@ -288,3 +288,21 @@ footer .muted{font-size:12px;opacity:.7;margin-top:4px}
   .stockband .sb-btn{width:100%;text-align:center}
   .stockband .sb-l{font-size:15px}
 }
+
+/* ---- language switcher ---- */
+.langsel{display:inline-flex;gap:4px;align-items:center;background:#f1f3f3;border-radius:9px;padding:3px}
+.langsel .lang{
+  border:none;background:transparent;cursor:pointer;border-radius:7px;
+  padding:5px 8px;display:inline-flex;align-items:center;gap:5px;
+  font-family:inherit;font-weight:700;font-size:12px;color:var(--muted);line-height:1;transition:.12s;
+}
+.langsel .lang .fl{font-size:15px;line-height:1}
+.langsel .lang:hover{background:#fff;color:var(--ink)}
+.langsel .lang.on{background:var(--brand);color:#fff}
+.langsel .lang.on .lb{color:#fff}
+@media(max-width:470px){
+  .langsel{padding:2px;gap:2px}
+  .langsel .lang{padding:5px 6px}
+  .langsel .lang .lb{display:none}   /* flags only on small phones */
+  .langsel .lang .fl{font-size:16px}
+}

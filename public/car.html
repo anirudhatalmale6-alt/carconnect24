@@ -40,19 +40,26 @@
 <body>
 <header><div class="bar">
   <a class="logo" href="/"><img src="/img/emblem.png" alt="CarConnect24" class="logo-mark"><span class="logo-txt">Car<i>Connect</i><b>24</b></span></a>
-  <nav class="nav"><a class="nl" href="/">Home</a><a href="/stock">Our stock</a><a class="nl" href="/#faq">FAQ</a><a class="wa" data-wa="Hello CarConnect24, I have a question."><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>WhatsApp</a><a href="/admin.html" class="adminlink">Admin</a></nav>
+  <nav class="nav"><a class="nl" href="/" data-i18n="nav.home">Home</a><a href="/stock" data-i18n="nav.stock">Our stock</a><a class="nl" href="/#faq" data-i18n="nav.faq">FAQ</a><a class="wa" data-i18n-wa="wa.question"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg><span data-i18n="nav.whatsapp">WhatsApp</span></a><span class="langsel"></span><a href="/admin.html" class="adminlink" data-i18n="nav.admin">Admin</a></nav>
 </div></header>
-<a class="back" href="/stock">← Back to stock</a>
-<div class="detail" id="detail">Loading…</div>
-<footer class="foot"><div class="foot-in" style="grid-template-columns:1fr"><div><img src="/img/logo-full-light.png" alt="CarConnect24" class="flogo"><p class="blurb">Quality export cars from Belgium to Europe, Africa and beyond.</p><div class="vat" data-vat></div></div></div><div class="foot-bot"><div>&copy; <span id="yr"></span> CarConnect24 &middot; carconnect24.eu</div><div><a href="/">Home</a> &middot; <a href="/stock">Our stock</a> &middot; <a href="/#faq">FAQ</a></div></div></footer><a class="wafloat" data-wa="Hello CarConnect24," aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg></a>
+<a class="back" href="/stock" data-i18n="nav.back">← Back to stock</a>
+<div class="detail" id="detail" data-i18n="cd.loading">Loading…</div>
+<footer class="foot"><div class="foot-in" style="grid-template-columns:1fr"><div><img src="/img/logo-full-light.png" alt="CarConnect24" class="flogo"><p class="blurb" data-i18n="foot.blurb"></p><div class="vat" data-vat></div></div></div><div class="foot-bot"><div>&copy; <span id="yr"></span> CarConnect24 &middot; carconnect24.eu</div><div><a href="/" data-i18n="nav.home">Home</a> &middot; <a href="/stock" data-i18n="nav.stock">Our stock</a> &middot; <a href="/#faq" data-i18n="nav.faq">FAQ</a></div></div></footer><a class="wafloat" data-i18n-wa="wa.hello" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg></a>
 
+<script src="/i18n.js"></script>
 <script src="/site.js"></script>
 <script>
+const T=k=>(window.t?window.t(k):k);
+const tv=v=>v?(window.t?window.t('v.'+v):v):'—';
 const euro=n=>n==null?'—':'€'+(+n).toLocaleString('de-DE');
 const km=n=>n==null?'—':(+n).toLocaleString('de-DE')+' km';
 const id=new URLSearchParams(location.search).get('id');
-fetch('/api/cars/'+id).then(r=>{if(!r.ok)throw 0;return r.json();}).then(render)
-  .catch(()=>{document.getElementById('detail').innerHTML='<p>Car not found. <a href="/">Back to stock</a></p>';});
+let CAR = null;
+fetch('/api/cars/'+id).then(r=>{if(!r.ok)throw 0;return r.json();}).then(c=>{CAR=c;render(c);})
+  .catch(()=>{document.getElementById('detail').innerHTML='<p>'+T('cd.notfound')+' <a href="/stock">'+T('nav.back')+'</a></p>';});
+
+/* redraw the car in the newly chosen language */
+document.addEventListener('langchange', ()=>{ if(CAR) render(CAR); });
 
 function render(c){
   document.title = `${c.make} ${c.model} — CarConnect24`;
@@ -72,18 +79,18 @@ function render(c){
     </div>
     <div class="info">
       <h1>${c.make} ${c.model}</h1>
-      <div style="color:var(--muted)">${c.year||''} · ${km(c.mileage)}${c.sold?' · <b style="color:#c0392b">SOLD</b>':''}</div>
+      <div style="color:var(--muted)">${c.year||''} · ${km(c.mileage)}${c.sold?' · <b style="color:#c0392b">'+T('sp.sold')+'</b>':''}</div>
       <div class="p">${euro(c.price)}</div>
       <div class="grid">
-        ${spec('Year',c.year||'—')}${spec('Mileage',km(c.mileage))}
-        ${spec('Fuel',c.fuel||'—')}${spec('Gearbox',c.gearbox||'—')}
-        ${spec('Power',c.power?c.power+' hp':'—')}${spec('Body',c.body||'—')}
-        ${spec('Color',c.color||'—')}${spec('Doors',c.doors||'—')}
-        ${spec('Seats',c.seats||'—')}${spec('Location',c.location||'Belgium')}
+        ${spec(T('cd.year'),c.year||'—')}${spec(T('cd.mileage'),km(c.mileage))}
+        ${spec(T('cd.fuel'),tv(c.fuel))}${spec(T('cd.gearbox'),tv(c.gearbox))}
+        ${spec(T('cd.power'),c.power?c.power+' hp':'—')}${spec(T('cd.body'),tv(c.body))}
+        ${spec(T('cd.color'),c.color||'—')}${spec(T('cd.doors'),c.doors||'—')}
+        ${spec(T('cd.seats'),c.seats||'—')}${spec(T('cd.location'),c.location||'Belgium')}
       </div>
-      <h3 style="margin:0 0 4px">Features</h3>
+      <h3 style="margin:0 0 4px">${T('cd.features')}</h3>
       <div class="flist">${feats}</div>
-      <a class="cta cta-wa" id="waCta" href="#no-whatsapp"><span style="display:inline-flex;align-items:center;gap:9px;justify-content:center"><svg style="width:19px;height:19px;fill:#fff" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>Contact us about this car</span></a>
+      <a class="cta cta-wa" id="waCta" href="#no-whatsapp"><span style="display:inline-flex;align-items:center;gap:9px;justify-content:center"><svg style="width:19px;height:19px;fill:#fff" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg><span data-i18n="cd.contact">Contact us about this car</span></span></a>
     </div>`;
   wire(photos.length);
 
@@ -92,13 +99,14 @@ function render(c){
   var cta = document.getElementById('waCta');
   if (cta) {
     var priceTxt = c.price == null ? '' : ' (' + euro(c.price) + ')';
-    var msg = 'Hello CarConnect24, I am interested in this car: '
+    var msg = T('wa.car') + ' '
             + [c.make, c.model, c.year].filter(Boolean).join(' ') + priceTxt
             + '\n' + location.href;
     cta.setAttribute('href', window.waHref ? window.waHref(msg) : '#no-whatsapp');
   }
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
+  if (window.applyI18n) window.applyI18n();   // the detail is built AFTER first paint
 }
 function wire(n){
   if(n<2)return;

@@ -1,4 +1,5 @@
 const $ = s => document.querySelector(s);
+const T = k => (window.t ? window.t(k) : k);
 const euro = n => n==null ? '—' : '€' + (+n).toLocaleString('de-DE');
 const km = n => n==null ? '—' : (+n).toLocaleString('de-DE') + ' km';
 
@@ -55,8 +56,8 @@ function setupCombo(){
   const render = term => {
     const t=(term||'').toLowerCase();
     shown = BRANDS.filter(b=>b.toLowerCase().includes(t));
-    if(!shown.length){ list.innerHTML='<div class="none">No brand matches</div>'; }
-    else list.innerHTML = ['<div data-v="">Any brand</div>',
+    if(!shown.length){ list.innerHTML='<div class="none">'+T('sp.nobrand')+'</div>'; }
+    else list.innerHTML = ['<div data-v="">'+T('sp.anybrand')+'</div>',
       ...shown.map(b=>`<div data-v="${b}">${b}</div>`)].join('');
     active=-1;
   };
@@ -82,7 +83,7 @@ function setupCombo(){
   document.addEventListener('click',e=>{ if(!e.target.closest('#makeCombo')) close(); });
 }
 async function refreshModels(){
-  const sel=$('#f-model'); sel.innerHTML='<option value="">Any model</option>';
+  const sel=$('#f-model'); sel.innerHTML='<option value="">'+T('sp.anymodel')+'</option>';
   if(!state.make) return;
   const models = await fetch('/api/models?make='+encodeURIComponent(state.make)).then(r=>r.json());
   models.forEach(m=>sel.add(new Option(m,m)));
@@ -99,7 +100,7 @@ function chipGroup(sel,key){
 }
 function resetAll(){
   state={make:'',model:'',pmin:'',pmax:'',yearmin:'',mileagemax:'',fuel:new Set(),gearbox:new Set(),body:new Set(),q:'',sort:'new',page:1};
-  $('#makeInput').value='';$('#f-model').innerHTML='<option value="">Any model</option>';
+  $('#makeInput').value='';$('#f-model').innerHTML='<option value="">'+T('sp.anymodel')+'</option>';
   $('#f-year').value='';$('#f-mileage').value='';$('#f-pmin').value='';$('#f-pmax').value='';
   $('#q').value='';$('#sort').value='new';
   document.querySelectorAll('.chip.on').forEach(c=>c.classList.remove('on'));
@@ -125,42 +126,43 @@ function buildQuery(){
 async function load(){
   const data = await fetch('/api/cars?'+buildQuery()).then(r=>r.json());
   $('#resCount').textContent = data.total.toLocaleString('de-DE');
-  $('#fcount').textContent = data.total.toLocaleString('de-DE')+' match';
+  $('#fcount').textContent = data.total.toLocaleString('de-DE')+' '+T('sp.match');
   render(data.cars);
   renderPager(data.pages, data.page);
 }
 
 function render(cars){
   const list=$('#list');
-  if(!cars.length){list.innerHTML='<div class="empty"><h3>No cars match your filters</h3><p>Try widening your search or reset the filters.</p></div>';return;}
+  if(!cars.length){list.innerHTML='<div class="empty"><h3>'+T('sp.empty.h')+'</h3><p>'+T('sp.empty.p')+'</p></div>';return;}
   list.innerHTML=cars.map(c=>{
     const ev=c.fuel==='Electric';
     const imgs = c.photos.length
       ? c.photos.map((p,i)=>`<img src="${p}" class="${i===0?'show':''}" loading="lazy" alt="${c.make} ${c.model}">`).join('')
-      : '<div class="ph">No photo</div>';
+      : '<div class="ph">'+T('sp.nophoto')+'</div>';
     const dots = c.photos.length>1 ? `<div class="dots">${c.photos.map((_,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div>`:'';
     const arrows = c.photos.length>1 ? '<button class="arrow prev" data-d="-1">‹</button><button class="arrow next" data-d="1">›</button>':'';
-    const specs=[['Year',c.year],['Mileage',km(c.mileage)],['Fuel',c.fuel||'—'],
-      ['Gearbox',c.gearbox||'—'],['Power',c.power?c.power+' hp':'—'],['Body',c.body||'—']]
+    const tv = v => v ? (window.t ? window.t('v.'+v) : v) : '—';
+    const specs=[[T('cd.year'),c.year],[T('cd.mileage'),km(c.mileage)],[T('cd.fuel'),tv(c.fuel)],
+      [T('cd.gearbox'),tv(c.gearbox)],[T('cd.power'),c.power?c.power+' hp':'—'],[T('cd.body'),tv(c.body)]]
       .map(s=>`<div class="spec"><b>${s[1]}</b> <span>${s[0]}</span></div>`).join('');
     const feats=(c.features||[]).slice(0,4).map(f=>`<span>${f}</span>`).join('');
     return `<article class="card" data-id="${c.id}">
       <div class="gal">
-        <span class="badge ${ev?'ev':''}">${c.fuel||'Car'}</span>
-        ${c.sold?'<span class="sold-tag">SOLD</span>':''}
+        <span class="badge ${ev?'ev':''}">${tv(c.fuel)}</span>
+        ${c.sold?'<span class="sold-tag">'+T('sp.sold')+'</span>':''}
         ${imgs}${arrows}${dots}
       </div>
       <div class="cbody">
         <div style="display:flex;align-items:flex-start">
           <div><h2>${c.make} ${c.model}</h2>
-            <div class="csub">${[c.color,c.doors?c.doors+' doors':'',c.seats?c.seats+' seats':''].filter(Boolean).join(' · ')||'&nbsp;'}</div></div>
+            <div class="csub">${[c.color,c.doors?c.doors+' '+T('cd.doors').toLowerCase():'',c.seats?c.seats+' '+T('cd.seats').toLowerCase():''].filter(Boolean).join(' · ')||'&nbsp;'}</div></div>
           <div class="cprice"><div class="price">${euro(c.price)}</div></div>
         </div>
         <div class="specs">${specs}</div>
         <div class="feat">${feats}</div>
         <div class="cfoot">
           <span class="loc">📍 ${c.location||'Belgium'}</span>
-          <button class="view" onclick="location.href='/car.html?id=${c.id}'">View details</button>
+          <button class="view" onclick="location.href='/car.html?id=${c.id}'">${T('sp.view')}</button>
         </div>
       </div>
     </article>`;
@@ -192,3 +194,17 @@ function renderPager(pages,cur){
     state.page=+b.dataset.p; load(); window.scrollTo({top:0,behavior:'smooth'});
   });
 }
+
+
+/* Re-render the list and the localised option labels when the language changes. */
+document.addEventListener('langchange', () => {
+  document.querySelectorAll('#f-mileage option[data-upto]').forEach(o => {
+    o.textContent = T('sp.upto') + ' ' + o.getAttribute('data-upto');
+  });
+  load();
+});
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#f-mileage option[data-upto]').forEach(o => {
+    o.textContent = T('sp.upto') + ' ' + o.getAttribute('data-upto');
+  });
+});

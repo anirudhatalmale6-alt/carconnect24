@@ -26,7 +26,7 @@ document.addEventListener('click', function (e) {
   var a = e.target.closest && e.target.closest('a[href="#no-whatsapp"]');
   if (!a) return;
   e.preventDefault();
-  alert('WhatsApp is not connected yet.\n\nThe site owner still needs to add the number in site.js.');
+  alert(window.t ? window.t('wa.notset') : 'WhatsApp is not connected yet.');
 });
 
 /* Fill any element that should show a configured value. */
@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-wa]').forEach(function (a) {
     a.setAttribute('href', window.waHref(a.getAttribute('data-wa') || ''));
   });
+  // localised footer/social labels
+  document.querySelectorAll('[data-fb]').forEach(function (a) { if (!a.textContent.trim()) a.textContent = 'Facebook'; });
+  document.querySelectorAll('[data-tt]').forEach(function (a) { if (!a.textContent.trim()) a.textContent = 'TikTok'; });
   var map = { FACEBOOK: '[data-fb]', TIKTOK: '[data-tt]' };
   Object.keys(map).forEach(function (k) {
     document.querySelectorAll(map[k]).forEach(function (el) {
