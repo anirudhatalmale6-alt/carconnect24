@@ -314,3 +314,6 @@ footer .muted{font-size:12px;opacity:.7;margin-top:4px}
 
 /* service 3: the €10 does NOT include travel */
 .svc .fuelnote{font-size:12.5px;font-weight:700;color:var(--muted);margin:-8px 0 14px;line-height:1.45}
+
+/* band with the sentence removed: just the button, centred */
+.stockband.bare{justify-content:center;padding:14px}

@@ -37,7 +37,7 @@ window.I18N = {
 
     /* stats */
     'stat.1n': '20,000', 'stat.1': 'export buyer contacts', 'stat.2': 'per car, fully listed',
-    'stat.3': 'channels per listing', 'stat.4': 'reachable on WhatsApp',
+    'stat.3': 'channels per listing', 'stat.3n': '8', 'stat.4': 'reachable on WhatsApp',
 
     /* stock band */
     'band.strong': 'Looking for a car?',
@@ -55,7 +55,8 @@ window.I18N = {
     'svc2.h': 'We publish your cars',
     'svc2.p': 'Putting a car online everywhere takes time and energy. We take that away completely. You send us the details and we publish the car on your own accounts AND on our own channels:',
     'svc2.yours': 'On your own accounts', 'svc2.ours': 'And on our channels',
-    'svc2.l1': '2dehands (Belgian market)', 'svc2.l1b': '(Belgian market)', 'svc2.l5b': '— our own website', 'svc2.l2': 'AutoScout24',
+    'svc2.l1': '2dehands (Belgian market)', 'svc2.l1b': '(Belgian market)', 'svc2.l5b': '— our own website',
+    'svc2.y3': 'Your Facebook page', 'svc2.y4': 'Your TikTok account', 'svc2.y5': 'Your Instagram account', 'svc2.l2': 'AutoScout24',
     'svc2.l3': 'Our Facebook channel', 'svc2.l4': 'Our TikTok channel',
     'svc2.l5': 'carconnect24.eu — our own website',
     'svc2.punch': 'Your channels + our channels = the highest chance of a sale',
@@ -64,7 +65,7 @@ window.I18N = {
     'svc3.p': 'Not in the mood to photograph the car yourself? No problem. We come to you and shoot the car properly with a professional camera. Good photos sell cars faster and for more.',
     'svc3.l1': 'We come to your location', 'svc3.l2': 'Professional camera, not a phone',
     'svc3.l3': 'Ready to publish immediately', 'svc3.l4': 'Combine with the listing service',
-    'svc3.btn': 'Book a shoot', 'svc3.fuel': '+ travel costs (fuel) — we drive out to you',
+    'svc3.btn': 'Book a shoot', 'svc3.fuel': '+ travel costs: €0.40 per km — we drive out to you',
     'svc.per': 'per car',
 
     /* how it works */
@@ -85,7 +86,7 @@ window.I18N = {
     'why.l3': 'We speak the buyer’s language, you do not have to',
     'why.l4': 'No marketplace admin on your side',
     'why.card.h': 'Dealers: we take the admin away',
-    'why.card.p': 'Publishing every car on every platform eats hours you do not have. Hand it to us for €10 per car and it lands on YOUR OWN 2dehands and YOUR OWN AutoScout24, plus our Facebook, our TikTok and our own website — while you get on with selling.',
+    'why.card.p': 'Publishing every car on every platform eats hours you do not have. Hand it to us for €10 per car and it lands on YOUR OWN 2dehands, AutoScout24, Facebook, TikTok and Instagram, plus our Facebook, our TikTok and our own website — while you get on with selling.',
     'why.card.btn': 'Talk to us',
 
     /* stock preview */
@@ -101,7 +102,7 @@ window.I18N = {
     'faq.q1': 'How do I send you a car?',
     'faq.a1': 'Simply on WhatsApp. Send the brand, model, year, mileage, VIN (chassis number) and some photos. You do not need an account and there is no form to fill in. We reply and take it from there.',
     'faq.q2': 'What does the €10 per car actually include?',
-    'faq.a2': 'For €10 per car we publish that car on your own 2dehands and your own AutoScout24 accounts, and on our Facebook channel, our TikTok channel and carconnect24.eu. One price, all five channels — your channels plus ours — and none of the admin lands on you.',
+    'faq.a2': 'For €10 per car we publish that car on your own 2dehands, AutoScout24, Facebook, TikTok and Instagram, and on our own Facebook channel, our TikTok channel and carconnect24.eu. One price, all eight channels — your channels plus ours — and none of the admin lands on you.',
     'faq.q3': 'Who are your 20,000 contacts?',
     'faq.a3': 'They are export buyers we have built up around the world who specifically look for cars coming out of Belgium. When you send us a car, it goes in front of the buyers in that network who are looking for exactly that kind of vehicle.',
     'faq.q4': 'Do you only work with dealers?',
@@ -109,7 +110,7 @@ window.I18N = {
     'faq.q5': 'What do you need to publish my cars for me?',
     'faq.a5': 'We need the car details, the photos and access to the accounts where the car should appear. We handle the listing itself so you do not have to log in and re-type the same car five times.',
     'faq.q6': 'What if I do not have good photos?',
-    'faq.a6': 'We come to you and shoot the car with a professional camera for €10 per car, plus travel costs (fuel), because we drive out to you. Good photos genuinely make a difference — they get more clicks and they help the car sell faster.',
+    'faq.a6': 'We come to you and shoot the car with a professional camera for €10 per car, plus travel costs of €0.40 per kilometre, because we drive out to you. Good photos genuinely make a difference — they get more clicks and they help the car sell faster.',
     'faq.q7': 'Which countries do your buyers come from?',
     'faq.a7': 'Across Europe and Africa mainly, and further afield as well. Belgium is known internationally for having interesting cars, which is exactly why the demand is there.',
     'faq.q8': 'How quickly can my car be online?',
@@ -171,7 +172,7 @@ window.I18N = {
     'wa.sell': 'Hello CarConnect24, I have a car I would like to sell. Here are the details:',
     'wa.export': 'Hello CarConnect24, I have a car for export. Here are the details:',
     'wa.publish': 'Hello CarConnect24, I would like you to publish my cars (€10 per car).',
-    'wa.photos': 'Hello CarConnect24, I would like to book professional photos (€10 per car + travel costs).',
+    'wa.photos': 'Hello CarConnect24, I would like to book professional photos (€10 per car + €0.40 per km travel).',
     'wa.dealer': 'Hello CarConnect24, I am a dealer and I would like to know more about the €10 publishing service.',
     'wa.hello': 'Hello CarConnect24,',
     'wa.stockq': 'Hello CarConnect24, I have a question about a car in your stock.',
@@ -193,7 +194,7 @@ window.I18N = {
     'hero.cta2': '🚗 Bekijk ons aanbod',
 
     'stat.1n': '20.000', 'stat.1': 'exportkopers in ons netwerk', 'stat.2': 'per wagen, volledig geplaatst',
-    'stat.3': 'kanalen per advertentie', 'stat.4': 'bereikbaar via WhatsApp',
+    'stat.3': 'kanalen per advertentie', 'stat.3n': '8', 'stat.4': 'bereikbaar via WhatsApp',
 
     'band.strong': 'Op zoek naar een wagen?',
     'band.text': 'Bekijk ons huidige aanbod — filter op merk, prijs, kilometerstand en brandstof.',
@@ -209,7 +210,8 @@ window.I18N = {
     'svc2.h': 'Wij plaatsen uw wagens',
     'svc2.p': 'Een wagen overal online zetten kost tijd en energie. Dat nemen wij volledig van u over. U stuurt ons de gegevens en wij plaatsen de wagen op uw eigen accounts én op onze eigen kanalen:',
     'svc2.yours': 'Op uw eigen accounts', 'svc2.ours': 'En op onze kanalen',
-    'svc2.l1': '2dehands (Belgische markt)', 'svc2.l1b': '(Belgische markt)', 'svc2.l5b': '— onze eigen website', 'svc2.l2': 'AutoScout24',
+    'svc2.l1': '2dehands (Belgische markt)', 'svc2.l1b': '(Belgische markt)', 'svc2.l5b': '— onze eigen website',
+    'svc2.y3': 'Uw Facebook-pagina', 'svc2.y4': 'Uw TikTok-account', 'svc2.y5': 'Uw Instagram-account', 'svc2.l2': 'AutoScout24',
     'svc2.l3': 'Ons Facebook-kanaal', 'svc2.l4': 'Ons TikTok-kanaal',
     'svc2.l5': 'carconnect24.eu — onze eigen website',
     'svc2.punch': 'Uw kanalen + onze kanalen = de grootste kans op verkoop',
@@ -218,7 +220,7 @@ window.I18N = {
     'svc3.p': 'Geen zin om zelf foto’s te nemen? Geen probleem. Wij komen langs en fotograferen de wagen professioneel met een echte camera. Goede foto’s verkopen sneller en brengen meer op.',
     'svc3.l1': 'Wij komen naar u toe', 'svc3.l2': 'Professionele camera, geen gsm',
     'svc3.l3': 'Meteen klaar om te plaatsen', 'svc3.l4': 'Combineer met de advertentieservice',
-    'svc3.btn': 'Fotoshoot boeken', 'svc3.fuel': '+ verplaatsingskosten (brandstof) — wij rijden naar u toe',
+    'svc3.btn': 'Fotoshoot boeken', 'svc3.fuel': '+ verplaatsingskosten: €0,40 per km — wij rijden naar u toe',
     'svc.per': 'per wagen',
 
     'how.head': 'Hoe het werkt',
@@ -237,7 +239,7 @@ window.I18N = {
     'why.l3': 'Wij spreken de taal van de koper, u hoeft dat niet te doen',
     'why.l4': 'Geen administratie op marktplaatsen voor u',
     'why.card.h': 'Handelaars: wij nemen de administratie over',
-    'why.card.p': 'Elke wagen op elk platform plaatsen kost uren die u niet heeft. Geef het aan ons voor €10 per wagen en de wagen staat op UW EIGEN 2dehands en UW EIGEN AutoScout24, plus onze Facebook, onze TikTok en onze eigen website — terwijl u gewoon verder verkoopt.',
+    'why.card.p': 'Elke wagen op elk platform plaatsen kost uren die u niet heeft. Geef het aan ons voor €10 per wagen en de wagen staat op UW EIGEN 2dehands, AutoScout24, Facebook, TikTok en Instagram, plus onze Facebook, onze TikTok en onze eigen website — terwijl u gewoon verder verkoopt.',
     'why.card.btn': 'Contacteer ons',
 
     'stk.head': 'Ons huidige aanbod',
@@ -251,7 +253,7 @@ window.I18N = {
     'faq.q1': 'Hoe stuur ik u een wagen door?',
     'faq.a1': 'Gewoon via WhatsApp. Stuur het merk, model, bouwjaar, kilometerstand, chassisnummer (VIN) en enkele foto’s. U heeft geen account nodig en er is geen formulier in te vullen. Wij antwoorden en nemen het vanaf daar over.',
     'faq.q2': 'Wat zit er precies in de €10 per wagen?',
-    'faq.a2': 'Voor €10 per wagen plaatsen wij die wagen op uw eigen 2dehands en uw eigen AutoScout24, en op ons Facebook-kanaal, ons TikTok-kanaal en op carconnect24.eu. Eén prijs, alle vijf de kanalen — uw kanalen plus die van ons — en geen enkele administratie voor u.',
+    'faq.a2': 'Voor €10 per wagen plaatsen wij die wagen op uw eigen 2dehands, AutoScout24, Facebook, TikTok en Instagram, en op ons eigen Facebook-kanaal, ons TikTok-kanaal en op carconnect24.eu. Eén prijs, alle acht de kanalen — uw kanalen plus die van ons — en geen enkele administratie voor u.',
     'faq.q3': 'Wie zijn die 20.000 contacten?',
     'faq.a3': 'Het zijn exportkopers die wij wereldwijd hebben opgebouwd en die specifiek zoeken naar wagens uit België. Wanneer u ons een wagen doorstuurt, komt die terecht bij de kopers in dat netwerk die precies zo’n wagen zoeken.',
     'faq.q4': 'Werkt u alleen met handelaars?',
@@ -259,7 +261,7 @@ window.I18N = {
     'faq.q5': 'Wat heeft u nodig om mijn wagens te plaatsen?',
     'faq.a5': 'Wij hebben de gegevens van de wagen nodig, de foto’s en toegang tot de accounts waar de wagen moet verschijnen. Wij maken de advertentie zelf op, zodat u niet vijf keer dezelfde wagen moet intypen.',
     'faq.q6': 'Wat als ik geen goede foto’s heb?',
-    'faq.a6': 'Wij komen langs en fotograferen de wagen met een professionele camera voor €10 per wagen, plus verplaatsingskosten (brandstof), omdat wij naar u toe rijden. Goede foto’s maken echt een verschil — ze leveren meer clicks op en de wagen verkoopt sneller.',
+    'faq.a6': 'Wij komen langs en fotograferen de wagen met een professionele camera voor €10 per wagen, plus verplaatsingskosten van €0,40 per kilometer, omdat wij naar u toe rijden. Goede foto’s maken echt een verschil — ze leveren meer clicks op en de wagen verkoopt sneller.',
     'faq.q7': 'Uit welke landen komen uw kopers?',
     'faq.a7': 'Vooral uit Europa en Afrika, en ook van verder. België staat internationaal bekend om zijn interessante wagens, en net daarom is de vraag er.',
     'faq.q8': 'Hoe snel staat mijn wagen online?',
@@ -315,7 +317,7 @@ window.I18N = {
     'wa.sell': 'Hallo CarConnect24, ik heb een wagen die ik wil verkopen. Dit zijn de gegevens:',
     'wa.export': 'Hallo CarConnect24, ik heb een wagen voor export. Dit zijn de gegevens:',
     'wa.publish': 'Hallo CarConnect24, ik wil graag dat jullie mijn wagens plaatsen (€10 per wagen).',
-    'wa.photos': 'Hallo CarConnect24, ik wil graag professionele foto’s boeken (€10 per wagen + verplaatsingskosten).',
+    'wa.photos': 'Hallo CarConnect24, ik wil graag professionele foto’s boeken (€10 per wagen + €0,40 per km verplaatsing).',
     'wa.dealer': 'Hallo CarConnect24, ik ben handelaar en wil graag meer weten over de plaatsingsservice van €10.',
     'wa.hello': 'Hallo CarConnect24,',
     'wa.stockq': 'Hallo CarConnect24, ik heb een vraag over een wagen uit jullie aanbod.',
