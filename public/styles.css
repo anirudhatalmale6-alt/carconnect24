@@ -311,3 +311,6 @@ footer .muted{font-size:12px;opacity:.7;margin-top:4px}
 .svc .grp{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--brand);margin:4px 0 6px}
 .svc ul + .grp{margin-top:12px}
 .svc .punch{background:#fdf1e8;border:1px solid #f6d9c2;border-radius:10px;padding:11px 13px;font-size:13.5px;font-weight:700;color:var(--brand-dark);line-height:1.45;margin:14px 0 4px}
+
+/* service 3: the €10 does NOT include travel */
+.svc .fuelnote{font-size:12.5px;font-weight:700;color:var(--muted);margin:-8px 0 14px;line-height:1.45}
