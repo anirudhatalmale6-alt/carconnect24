@@ -207,7 +207,7 @@ window.I18N = {
     'svc1.l3': 'Kopers in heel Europa en Afrika', 'svc1.l4': 'Geen advertentiewerk voor u',
     'svc1.btn': 'Wagen doorsturen',
     'svc2.h': 'Wij plaatsen uw wagens',
-    'svc2.p': 'Een wagen overal online zetten kost tijd en energie. Dat nemen wij volledig van u over. U stuurt ons de gegevens en wij plaatsen de wagen op al deze kanalen:',
+    'svc2.p': 'Een wagen overal online zetten kost tijd en energie. Dat nemen wij volledig van u over. U stuurt ons de gegevens en wij plaatsen de wagen op uw eigen accounts én op onze eigen kanalen:',
     'svc2.yours': 'Op uw eigen accounts', 'svc2.ours': 'En op onze kanalen',
     'svc2.l1': '2dehands (Belgische markt)', 'svc2.l1b': '(Belgische markt)', 'svc2.l5b': '— onze eigen website', 'svc2.l2': 'AutoScout24',
     'svc2.l3': 'Ons Facebook-kanaal', 'svc2.l4': 'Ons TikTok-kanaal',
