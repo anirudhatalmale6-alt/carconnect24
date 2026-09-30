@@ -317,3 +317,12 @@ footer .muted{font-size:12px;opacity:.7;margin-top:4px}
 
 /* band with the sentence removed: just the button, centred */
 .stockband.bare{justify-content:center;padding:14px}
+
+/* his main business model — the loudest thing on the card */
+.svc .netbox{
+  background:linear-gradient(120deg,var(--brand),#f28a3c);
+  color:#fff;border-radius:12px;padding:14px 16px;margin:14px 0 0;
+  box-shadow:0 6px 18px rgba(232,113,26,.28);
+}
+.svc .netbox .nb-h{font-weight:800;font-size:15px;line-height:1.35;margin-bottom:5px}
+.svc .netbox .nb-s{font-size:12.5px;line-height:1.5;opacity:.95}
