@@ -33,7 +33,12 @@
   .cta-wa{background:var(--wa)}
   .cta-wa:hover{background:var(--wa-dark)}
   .back{display:inline-block;margin:16px 0 0 20px;color:var(--muted);font-weight:600}
-  .desc{white-space:pre-wrap;color:#3c4646;line-height:1.5}
+  .desc{color:#3c4646;line-height:1.6}
+  .desc p{margin:0 0 9px}
+  .desc ul.dlist{margin:0 0 10px;padding-left:0;list-style:none}
+  .desc ul.dlist li{position:relative;padding:3px 0 3px 18px}
+  .desc ul.dlist li:before{content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+  .desc b{color:var(--ink)}
   @media(max-width:820px){.detail{grid-template-columns:1fr}}
 </style>
 </head>
@@ -50,6 +55,24 @@
 <script src="/site.js"></script>
 <script>
 const T=k=>(window.t?window.t(k):k);
+/* Turn the *bold* / "* bullet" style dealers paste in into real formatting.
+   escapeHtml() runs FIRST, so nothing stored can inject markup. */
+function richText(raw){
+  var safe = escapeHtml(raw);
+  var lines = safe.split(/\r?\n/);
+  var out = [], list = [];
+  function flush(){ if(list.length){ out.push('<ul class="dlist">'+list.join('')+'</ul>'); list=[]; } }
+  lines.forEach(function(ln){
+    var t = ln.trim();
+    var m = t.match(/^[*\u2022-]\s+(.*)$/);      // "* item", "- item", "• item"
+    if(m){ list.push('<li>'+bold(m[1])+'</li>'); return; }
+    flush();
+    if(t) out.push('<p>'+bold(t)+'</p>');
+  });
+  flush();
+  return out.join('');
+}
+function bold(x){ return x.replace(/\*([^*]+)\*/g, '<b>$1</b>'); }
 const tv=v=>v?(window.t?window.t('v.'+v):v):'—';
 const euro=n=>n==null?'—':'€'+(+n).toLocaleString('de-DE');
 const km=n=>n==null?'—':(+n).toLocaleString('de-DE')+' km';
@@ -76,7 +99,7 @@ function render(c){
     <div>
       <div class="db">${gallery}</div>
       ${thumbs}
-      ${c.description?`<div class="info" style="margin-top:16px"><h3 style="margin:0 0 8px">Description</h3><div class="desc">${escapeHtml(c.description)}</div></div>`:''}
+      ${c.description?`<div class="info" style="margin-top:16px"><h3 style="margin:0 0 8px">${T('cd.desc')}</h3><div class="desc">${richText(c.description)}</div></div>`:''}
     </div>
     <div class="info">
       <h1>${c.make} ${c.model}</h1>

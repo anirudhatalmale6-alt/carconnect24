@@ -161,7 +161,7 @@ window.I18N = {
     'cd.year': 'Year', 'cd.mileage': 'Mileage', 'cd.fuel': 'Fuel', 'cd.gearbox': 'Gearbox',
     'cd.power': 'Power', 'cd.body': 'Body', 'cd.color': 'Color', 'cd.doors': 'Doors',
     'cd.seats': 'Seats', 'cd.location': 'Location', 'cd.features': 'Features',
-    'cd.contact': 'Contact us about this car', 'cd.loading': 'Loading…',
+    'cd.desc': 'Description', 'cd.contact': 'Contact us about this car', 'cd.loading': 'Loading…',
     'cd.notfound': 'Car not found.',
 
     /* whatsapp messages */
@@ -304,7 +304,7 @@ window.I18N = {
     'cd.gearbox': 'Versnellingsbak', 'cd.power': 'Vermogen', 'cd.body': 'Carrosserie',
     'cd.color': 'Kleur', 'cd.doors': 'Deuren', 'cd.seats': 'Zitplaatsen',
     'cd.location': 'Locatie', 'cd.features': 'Uitrusting',
-    'cd.contact': 'Contacteer ons over deze wagen', 'cd.loading': 'Laden…',
+    'cd.desc': 'Beschrijving', 'cd.contact': 'Contacteer ons over deze wagen', 'cd.loading': 'Laden…',
     'cd.notfound': 'Wagen niet gevonden.',
 
     'wa.info': 'Hallo CarConnect24, ik had graag meer informatie.',
