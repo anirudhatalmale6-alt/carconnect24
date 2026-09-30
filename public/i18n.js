@@ -343,6 +343,15 @@ window.I18N = {
   }
 
   window.LANG = pick();
+
+  /* Is this key known in the current language or in English? */
+  window.hasKey = function (key) {
+    var d = window.I18N[window.LANG];
+    if (d && d[key] != null) return true;
+    var e = window.I18N.en;
+    return !!(e && e[key] != null);
+  };
+
   window.t = function (key) {
     var d = window.I18N[window.LANG] || window.I18N.nl;
     if (d && d[key] != null) return d[key];
@@ -361,14 +370,18 @@ window.I18N = {
   window.applyI18n = function () {
     document.documentElement.setAttribute('lang', window.LANG);
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      el.textContent = window.t(el.getAttribute('data-i18n'));
+      var k = el.getAttribute('data-i18n');
+      if (window.hasKey(k)) el.textContent = window.t(k);
+      // else: leave the html's own wording in place
     });
     document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
-      el.setAttribute('placeholder', window.t(el.getAttribute('data-i18n-ph')));
+      var k = el.getAttribute('data-i18n-ph');
+      if (window.hasKey(k)) el.setAttribute('placeholder', window.t(k));
     });
     // WhatsApp links carry a KEY now, so the message follows the language
     document.querySelectorAll('[data-i18n-wa]').forEach(function (el) {
-      if (window.waHref) el.setAttribute('href', window.waHref(window.t(el.getAttribute('data-i18n-wa'))));
+      var k = el.getAttribute('data-i18n-wa');
+      if (window.waHref) el.setAttribute('href', window.waHref(window.hasKey(k) ? window.t(k) : ''));
     });
     document.querySelectorAll('.langsel .lang').forEach(function (b) {
       b.classList.toggle('on', b.getAttribute('data-lang') === window.LANG);
